@@ -42,13 +42,13 @@
 				<td><?php echo $fila['fecha_creacion']?></td>
 				<td><?php echo $fila['fecha_entrega']?></td>
 				<td><?php echo $fila['observaciones']?></td>
-				<td><a class="btn btn-default" href="cntr_modificar.php?id=<?=$fila['id']?>" style="background-color: #8FDCBB">
+				<td><a class="btn btn-default" href="controllers/cntr_modificar.php?id=<?=$fila['id']?>" style="background-color: #8FDCBB">
 						<span class="fa fa-pencil-square-o"></span>
 					</a>
-				<td><a class="btn btn-default" href="cntr_eliminar.php?id=<?=$fila['id']?>" style="background-color: #F79999">
+				<td><a class="btn btn-default" href="controllers/cntr_eliminar.php?id=<?=$fila['id']?>" style="background-color: #F79999">
 						<span class="fa fa-trash"></span>
 					</a>
-				<td><a class="btn btn-default" href="cntr_recepcion.php?id=<?=$fila['id']?>" >
+				<td><a class="btn btn-default" href="controllers/cntr_recepcion.php?id=<?=$fila['id']?>" >
 						<span class="fa fa-check"></span>
 					</a>
 			</tr>

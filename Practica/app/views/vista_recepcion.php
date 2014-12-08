@@ -11,10 +11,10 @@
 <body>
 
 	<div class="container">
-		<h3>Anotar recepción <small>Envío #<?php echo $_GET['id']?></small></h3>
+		<h3 style="text-align: center; background-color: #CECECE;">Anotar recepción <small>Envío #<?php echo $_GET['id']?></small></h3>
 		<br>
 		
-		<form method="post" action="">
+		<form class="form-horizontal" method="post" action="">
 		<div class="form-group">
 		    <label for="observaciones" class="col-sm-2 control-label">Observaciones</label>
 		    <div class="col-sm-4">

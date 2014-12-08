@@ -1,5 +1,5 @@
 <?php
-require '../config.php';
+require ('../config.php');
 include (ruta.'/models/modelo.php');
 require (ruta."/views/vista_encabezado.php");
 
@@ -15,7 +15,7 @@ if($_POST)
 	
 	$cod = $_GET['id'];
 	$prueba=ModificarDatos($campos, $cod);
-	header("location: cntr_envios.php");
+	header("location: ../index.php");
 }
 else 
 {

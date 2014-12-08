@@ -63,15 +63,17 @@
 
 		<div class="form-group">
 		    <label for="estado" class="col-sm-2 control-label">Estado</label>
+		    <div class="col-sm-4">
 				<label class="radio-inline">
 					<input type="radio" name="estado" value="P"<?= (isset($_POST['estado']) && $_POST['estado']=='P') ? 'checked="checked"' : ''?>>Pendiente
-					</label>
-					<label class="radio-inline">
-					  <input type="radio" name="estado" value="E"<?= (isset($_POST['estado']) && $_POST['estado']=='E') ? 'checked="checked"' : ''?>>Entregado
-					</label>
-					<label class="radio-inline">
-					  <input type="radio" name="estado" value="D"<?= (isset($_POST['estado']) && $_POST['estado']=='D') ? 'checked="checked"' : ''?>>Devuelto
 				</label>
+				<label class="radio-inline">
+					<input type="radio" name="estado" value="E"<?= (isset($_POST['estado']) && $_POST['estado']=='E') ? 'checked="checked"' : ''?>>Entregado
+				</label>
+				<label class="radio-inline">
+					<input type="radio" name="estado" value="D"<?= (isset($_POST['estado']) && $_POST['estado']=='D') ? 'checked="checked"' : ''?>>Devuelto
+				</label>
+			</div>
 		 </div>
 
 		 

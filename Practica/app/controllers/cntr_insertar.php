@@ -1,6 +1,7 @@
 <?php
-require '../config.php';
+require ('../config.php');
 require (ruta.'/models/modelo.php');
+require (ruta.'\helpers\select_provincias.php');
 
 $provincias = ListaProvincias();
 
@@ -16,7 +17,7 @@ if($_POST)
 	/*Si hay errores, incluimos el formulario vacío.*/
 	if($errores)
 	{
-		include (ruta.'../views/vista_insertar.php');
+		include (ruta.'/views/vista_insertar.php');
 		echo "Campos no válidos";
 		
 	}
@@ -38,12 +39,12 @@ if($_POST)
 		
 		//Añade el envío
 		añadirEnvio($arrDatos);
-		header("location: cntr_envios.php");
+		header("location: ../index.php");
 	}
 }
 else
 {
-	include (ruta."../views/vista_insertar.php");
+	include (ruta."/views/vista_insertar.php");
 }
 
 

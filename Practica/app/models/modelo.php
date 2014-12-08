@@ -86,11 +86,7 @@ function ModificarDatos($datos, $cod)
 {
 	$bd = Bd_conexion::getInstance();
 	
-	/*$sql ="update envios set destinatario='".$datos['destinatario']."', telefono='".$datos['telefono']."', direccion='".$datos['direccion']
-			."', poblacion='".$datos['poblacion']."', codigo_postal=".$datos['codigo_postal'].", provincia=".$datos['provincia']
-				.", email='".$datos['email']."', estado='".$datos['estado']."', fecha_entrega='".$datos['fecha_entrega']."', observaciones='".$datos['observaciones']."' 
-						where id='$cod'";
-	
+	/*	
 	echo '<pre style="padding:.5em; background:#eee">'.$sql.'</pre>';
 	exit;*/
 	
@@ -117,4 +113,23 @@ function EliminarEnvio($cod)
 	
 	$sql = "DELETE FROM envios WHERE id='$cod'";
 	$bd->Consulta($sql);
+}
+
+
+function BuscarEnvio($busqueda)
+{
+	$bd = Bd_conexion::getInstance();
+	
+	$sql = "SELECT * FROM envios WHERE destinatario LIKE '%$busqueda%' OR telefono LIKE '%$busqueda%' OR poblacion LIKE '%$busqueda%'";
+	$bd->Consulta($sql);
+	
+	$envios = array();
+	
+	//Realizamos un bucle para ir obteniendo los resultados*/
+	while ($reg=$bd->LeeRegistro())
+	{
+		$envios[]=$reg;
+	}
+	
+	return $envios;
 }

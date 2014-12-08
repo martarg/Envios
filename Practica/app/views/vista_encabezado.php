@@ -13,10 +13,19 @@
 		</div>
 		
 		<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="cntr_envios.php">Inicio</a></li>
-		  <li role="presentation"><a href="cntr_insertar.php">Añadir envío</a></li>
+		  <li role="presentation"><a href="../index.php">Inicio</a></li>
+		  <li role="presentation"><a href="controllers/cntr_insertar.php">Añadir envío</a></li>
 		</ul>
 		<br>
+		
+		<form class="form-horizontal" role="form" action="controllers/cntr_buscar.php" method="post">
+			<div class="form-group">
+			    <button type="submit" class="">Buscar</button>
+			    <div class="col-sm-4">
+			      <input type="text" class="form-control" name="busqueda" placeholder="Buscar..."/>
+			    </div>
+			 </div>
+		 </form>
 </div>
 </body>
 </html>

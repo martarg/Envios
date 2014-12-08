@@ -14,4 +14,4 @@
 </body>
 </html>
 <?php
-header ( 'Refresh: 3; URL=cntr_envios.php');
+header ( 'Refresh: 3; URL= ../index.php');

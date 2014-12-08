@@ -47,15 +47,7 @@
 		<div class="form-group">
 		    <label for="provincia" class="col-sm-2 control-label">Provincia</label>
 		    <div class="col-sm-4">
-		    	<select class="form-control" name="provincia">
-		    		<option></option>
-		    		<?php 
-					foreach ($provincias as $cod=>$valor)
-					{
-						echo "<option value=".$cod.">".$valor."</option>";
-					}
-					?>
-		    	</select>
+		    	<?=CreaSelect('provincia', $provincias, (isset($_POST['provincia']) ? $_POST['provincia'] : ''), 'class="form-control"');?>
 		    </div>
 		</div>
 		

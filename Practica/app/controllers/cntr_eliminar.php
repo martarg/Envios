@@ -1,6 +1,6 @@
 <?php
 require '../config.php';
-require ruta.'/models/modelo.php';
+require (ruta.'/models/modelo.php');
 require (ruta."/views/vista_encabezado.php");
 
 //ID del envio (se recoge de la ruta)
@@ -11,7 +11,7 @@ if ($confirmado)
 {
 	// Borramos
 	EliminarEnvio($codigo);
-	include ruta."/views/vista_borrado.php";
+	include ruta."../views/vista_borrado.php";
 	
 }
 else
@@ -30,5 +30,5 @@ else
 	$_POST['fecha_entrega'] = $datos['fecha_entrega'];
 	$_POST['observaciones'] = $datos['observaciones'];
 
-	include(ruta."/views/vista_eliminar.php");
+	include(ruta."../views/vista_eliminar.php");
 }

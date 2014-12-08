@@ -14,7 +14,7 @@
 		<br>Destinatario: <?php echo $_POST['destinatario']?></strong><br><br>
 				
 		<a class="btn btn-success" href="cntr_eliminar.php?id=<?=$codigo?>&confirmado=1">Aceptar</a>
-		<a class="btn btn-warning" href="cntr_envios.php">Cancelar</a>
+		<a class="btn btn-warning" href="../index.php">Cancelar</a>
 	</div>
 	
 </body>

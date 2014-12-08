@@ -1,7 +1,8 @@
 <?php
-require '../config.php';
-require ruta.'/models/modelo.php';
-require ruta.'/helpers/ValidarCampos.php';
+require ('..\config.php');
+require (ruta.'\models\modelo.php');
+require (ruta.'\helpers\ValidarCampos.php');
+require (ruta.'\helpers\select_provincias.php');
 require (ruta."/views/vista_encabezado.php");
 
 if($_POST)
@@ -34,7 +35,7 @@ if($_POST)
 		
 		//modifica en la base de datos
 		ModificarDatos($nuevosDatos, $codigo);
-		header("location: cntr_envios.php");
+		header("location: ..\index.php");
 	}
 }
 else
@@ -57,29 +58,4 @@ else
 	
 	$provincias=ListaProvincias();
 	include (ruta.'/views/vista_modificar.php');
-}
-
-/**
- *
- * @param string $name Nombre del campo
- * @param array $opciones Opciones que tiene el select
- * 			clave array=valor option
- * 			valor array=texto option
- * @param string $valorDefecto Valor seleccionado
- * @return string
- */
-function CreaSelect($name, $opciones, $valorDefecto, $atributos='')
-{
-	$html="\n".'<select name="'.$name.'" '.$atributos.'>';
-		foreach($opciones as $value=>$text)
-		{
-			if ($value==$valorDefecto)
-				$select='selected="selected"';
-			else
-				$select="";
-			$html.= "\n\t<option value=\"$value\" $select>$text</option>";
-		}
-	$html.="\n</select>";
-
-	return $html;
 }
