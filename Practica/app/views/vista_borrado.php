@@ -8,8 +8,10 @@
 	rel="stylesheet">
 </head>
 <body>
-	<div class="alert alert-success" role="alert">
-		El envío ha sido <strong>eliminado</strong>
+	<div class="container">
+		<div class="alert alert-success" role="alert">
+			El envío ha sido <strong>eliminado</strong>
+		</div>
 	</div>
 </body>
 </html>

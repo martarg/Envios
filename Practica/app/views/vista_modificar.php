@@ -6,8 +6,7 @@
 </head>
 <body>
 <div class="container">
-	
-	<h3><strong>Modificar</strong></h3>
+	<h3 style="text-align: center; background-color: #CECECE;">Modificar envío #<?php echo $_GET['id']?></h3>
 	
 	<div class="container">
 	<form class="form-horizontal" role="form" action="" method="post">

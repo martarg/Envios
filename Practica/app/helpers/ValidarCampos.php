@@ -7,6 +7,7 @@ function FiltrarCampos()
 	if ($_POST['destinatario']=='' || $_POST['telefono']=='' || $_POST['direccion']=='' ||
 			$_POST['poblacion']=='' || $_POST['provincia']=='' || $_POST['email']=='')
 	{
+		echo '<div class="container"><div class="alert alert-danger"><strong>Atención </strong>debes rellenar todos los campos</div></div>';
 		return true;
 	}
 

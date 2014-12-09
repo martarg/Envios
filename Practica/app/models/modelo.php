@@ -2,14 +2,13 @@
 include (ruta.'/conection/conexion.php');
 
 /**
- *
- * 
+ * Selecciona todos los envíos ordenados de forma descendente por fecha de creación.
+ * @return array envios.
  */
 function getEnvios()
 {
 	$bd = Bd_conexion::getInstance();
 
-	//$sql = "SELECT destinatario, telefono, direccion, poblacion, codigo_postal, provincia, correo_elect, estado, fecha_creacion, fecha_entrega, observaciones FROM envios order by fecha_creacion desc";
 	$sql = "SELECT * FROM envios order by fecha_creacion desc";
 	$bd->Consulta($sql);
 	
@@ -26,7 +25,7 @@ function getEnvios()
 
 
 /**
- * 
+ * Inserta en la tabla envíos los datos pasados por parámetro.
  * @param $datos:array con los datos a introducir
  */
 function añadirEnvio($datos)
@@ -47,7 +46,7 @@ function añadirEnvio($datos)
  * DEVUELVE LOS DATOS DE UN ENVÍO DETERMINADO
  * 
  * @param $cod = codigo de envio
- * @return Datos del envío del codigo>
+ * @return Datos del envío del codigo.
  */
 function datosEnvio($cod)
 {
@@ -82,13 +81,14 @@ function ListaProvincias()
 }
 
 
+/**
+ * Modifica un envío (pasado por parámetro) con los datos pasados por parámetro
+ * @param unknown $datos
+ * @param unknown $cod
+ */
 function ModificarDatos($datos, $cod)
 {
 	$bd = Bd_conexion::getInstance();
-	
-	/*	
-	echo '<pre style="padding:.5em; background:#eee">'.$sql.'</pre>';
-	exit;*/
 	
 	$campos = '';
 	
@@ -103,10 +103,17 @@ function ModificarDatos($datos, $cod)
 	
 	$sql = "update envios set ".$campos." where id=".$cod;
 	
+	/*echo '<pre style="padding:.5em; background:#eee">'.$sql.'</pre>';
+	 exit;*/
+	
 	$bd->Consulta($sql);
 }
 
 
+/**
+ * Elimina un envío determinado.
+ * @param $cod = código del envío a eliminar
+ */
 function EliminarEnvio($cod)
 {
 	$bd = Bd_conexion::getInstance();
@@ -116,6 +123,12 @@ function EliminarEnvio($cod)
 }
 
 
+/**
+ * Busca datos en la tabla envíos.
+ * 
+ * @param $busqueda = datos a buscar
+ * @return array $envios = todos los envíos con esa coincidencia
+ */
 function BuscarEnvio($busqueda)
 {
 	$bd = Bd_conexion::getInstance();
