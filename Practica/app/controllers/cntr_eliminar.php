@@ -1,3 +1,5 @@
+<!-- Controla la opción de eliminar un envío -->
+
 <?php
 require '../config.php';
 require (ruta.'/models/modelo.php');
@@ -5,15 +7,19 @@ require (ruta."/views/vista_encabezado.php");
 
 //ID del envio (se recoge de la ruta)
 $codigo = $_GET['id'];
+
+/*Guarda el valor si el envío ha sido confirmado para eliminarlo o no.*/
 $confirmado=isset($_GET['confirmado']) && $_GET['confirmado'];
 
+/*Si se enviado Aceptar: */
 if ($confirmado)
 {
-	// Borramos
+	// Elimina el envío
 	EliminarEnvio($codigo);
 	include ruta."../views/vista_borrado.php";
 	
 }
+/*Si no se ha enviado nada, pregunta para borrar*/
 else
 {
 	// Preguntamos para borrar

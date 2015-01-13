@@ -1,3 +1,5 @@
+<!-- Controla opción de modificar un envío -->
+
 <?php
 require ('..\config.php');
 require (ruta.'\models\modelo.php');
@@ -5,8 +7,10 @@ require (ruta.'\helpers\ValidarCampos.php');
 require (ruta.'\helpers\select_provincias.php');
 require (ruta."/views/vista_encabezado.php");
 
+//Si se ha enviado:
 if($_POST)
 {
+	//Comprueba si hay errores.
 	$errores = FiltrarCampos();
 	
 	/*Si hay errores, incluimos el formulario con errores.*/
@@ -14,7 +18,8 @@ if($_POST)
 	{
 		include (ruta.'/views/vista_modificar.php');
 		echo "Campos no válidos";
-	}	
+	}
+	/*Sino, insertamos los datos en un array*/
 	else
 	{
 		$nuevosDatos = array (
@@ -33,14 +38,15 @@ if($_POST)
 		//ID del envio (se recoge de la ruta)
 		$codigo = $_GET['id'];
 		
-		//modifica en la base de datos
+		//modifica en la base de datos con los nuevos datos de un envío determinado.
 		ModificarDatos($nuevosDatos, $codigo);
 		header("location: ..\index.php");
 	}
 }
+/*Si no se ha enviado: */
 else
 {
-	//Muestra los campos del envío con ese código en la vista
+	//Muestra los campos en la vista de un envío determinado.
 	$datosExiste = datosEnvio($_GET['id']);
 		
 		$arrMod = array (
@@ -56,6 +62,7 @@ else
 			$_POST['observaciones'] = $datosExiste['observaciones']
 		);
 	
+	/*Muestra la lista de los nombres de provincias.*/
 	$provincias=ListaProvincias();
 	include (ruta.'/views/vista_modificar.php');
 }

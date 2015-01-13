@@ -1,19 +1,28 @@
+<!-- Controla la opción de anotar la recepción de un envío -->
+
 <?php
 require ('../config.php');
 include (ruta.'/models/modelo.php');
 require (ruta."/views/vista_encabezado.php");
 
 
-
 if($_POST)
 {
+	/*	Guardamos en un array
+	 * 		- Estado = entregado
+	 * 		- Fecha actual
+	 *		- Observaciones existentes
+	 */
 	$campos = array (
 		'estado' => 'E',
 		'fecha_entrega' => date('Y-m-d'),
 		'observaciones' => $_POST['observaciones']
 	);
 	
+	//Código del envío (de la url).
 	$cod = $_GET['id'];
+	
+	//Modifica el estado, fecha y observaciones del envío.
 	$prueba=ModificarDatos($campos, $cod);
 	header("location: ../index.php");
 }
