@@ -56,6 +56,39 @@
 			}
 			?>
 		</table>
+		<?php 
+		//mostramos la paginación
+		
+   		echo '<nav><ul class="pagination">';
+   		echo '<li>
+				<a href="?pagina='.$PagPrimera.'" aria-label="First">
+	            <span aria-hidden="true">&laquo;</span>
+	          	</a>
+	          <a href="?pagina='.$PagAnterior.'" aria-label="Previous">
+	            <span aria-hidden="true">&#60;</span>
+	          </a>
+	         </li>';
+   		for ($i=1; $i <= $paginasTotales; $i++)
+	   	{
+		    if($i == $paginaActual)
+		    {
+		     	echo '<li class="active"><a href="#">'.$i.'<span class="sr-only">(current)</span></a></li>';
+		    }
+		    elseif($i==1 || $i==$paginasTotales || ($i>=$paginaActual-2 && $i<=$paginaActual+2))
+		    {
+		     	echo '<li><a href="?pagina='.$i.'" class="pagina">'.$i.'</a></li>';
+		    }
+   		}
+   		echo '<li>
+	          <a href="?pagina='.$PagSiguiente.'" aria-label="Next">
+	            <span aria-hidden="true">&#62;</span>
+	          </a>
+			<a href="?pagina='.$PagUltima.'" aria-label="Next">
+	            <span aria-hidden="true">&raquo;</span>
+	          </a>
+	         </li>';
+   		echo '</ul></nav>';
+  ?>
 	</div>
 </body>
 </html>

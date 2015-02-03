@@ -5,11 +5,13 @@ include (ruta.'/conection/conexion.php');
  * Selecciona todos los envíos ordenados de forma descendente por fecha de creación.
  * @return array envios.
  */
-function getEnvios()
+function getEnvios($articuloInicial,$articulosPorPagina)
 {
 	$bd = Bd_conexion::getInstance();
 
-	$sql = "SELECT * FROM envios order by fecha_creacion desc";
+	$sql = "SELECT * FROM envios order by fecha_creacion desc LIMIT ".$articuloInicial.", ".$articulosPorPagina;
+	
+	/*' . $articuloInicial . ', ' . $articulosPorPagina;*/
 	$bd->Consulta($sql);
 	
 	$envios = array();
