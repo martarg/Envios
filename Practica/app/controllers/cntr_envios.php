@@ -16,6 +16,7 @@ $fila=$bd->LeeRegistro();
 $articulosTotales = $fila['total'];
 
 //Busca cuántas páginas hay en total
+//$articulosPorPagina = 10;
 $articulosPorPagina = 3;
 $paginasTotales = ceil($articulosTotales / $articulosPorPagina);
 
@@ -45,7 +46,7 @@ $articuloInicial = ($paginaActual - 1) * $articulosPorPagina;
 //llamamos a la función que nos lista los envios.
 $envios = getEnvios($articuloInicial, $articulosPorPagina);
 
-//Creamos variables que contengan la pagina siguiente y anterior.
+//Creamos variables que contengan la pagina siguiente, anterior, última y primera.
 $PagSiguiente = $paginaActual+1;
 $PagAnterior = $paginaActual-1;
 

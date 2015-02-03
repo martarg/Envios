@@ -7,6 +7,7 @@
 </head>
 <body>
 	<div class="container">
+	<h3 style="text-align: center; background-color: #CECECE;">Resultados encontrados</h3>
 		<table class="table">
 		<tr>
 				<th>#</th>

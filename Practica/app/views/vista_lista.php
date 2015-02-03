@@ -56,9 +56,9 @@
 			}
 			?>
 		</table>
-		<?php 
+	
+		<?php 	
 		//mostramos la paginación
-		
    		echo '<nav><ul class="pagination">';
    		echo '<li>
 				<a href="?pagina='.$PagPrimera.'" aria-label="First">

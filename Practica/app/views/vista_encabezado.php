@@ -15,17 +15,18 @@
 		<ul class="nav nav-tabs">
 		  <li role="presentation"><a href="../index.php">Inicio</a></li>
 		  <li role="presentation"><a href="controllers/cntr_insertar.php">Añadir envío</a></li>
+		  <li role="presentation"><a href="controllers/cntr_buscar.php">Buscar</a></li>
 		</ul>
 		<br>
 		
-		<form class="form-horizontal" role="form" action="controllers/cntr_buscar.php" method="post">
+		<!-- <form class="form-horizontal" role="form" action="controllers/cntr_buscar.php" method="post">
 			<div class="form-group">
 			    <div class="col-sm-4">
 			      <input type="text" class="form-control" name="busqueda" placeholder="Buscar..."/>
 			    </div>
 			    <button type="submit" class="btn btn-primary">Buscar</button>
 			 </div>
-		 </form>
+		 </form> -->
 </div>
 </body>
 </html>
