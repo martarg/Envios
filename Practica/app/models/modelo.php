@@ -135,24 +135,43 @@ function BuscarEnvio($busqueda)
 {
 	$bd = Bd_conexion::getInstance();
 	
-	
 	//$sql = "SELECT * FROM envios WHERE destinatario LIKE '%$busqueda%' OR telefono LIKE '%$busqueda%' OR poblacion LIKE '%$busqueda%'";
-	//$sql = "SELECT * FROM envios WHERE destinatario LIKE '%{$busqueda['nombre']}%' OR provincia LIKE '%{$busqueda['provincia']}%' OR cp LIKE '%{$busqueda['cp']}%'";
 	
 	if(isset($_POST['destinatario']) && $_POST['destinatario']!="")
 	{
-		$where[] = "destinatario LIKE '%{$_POST['destinatario']}%'";
+		if(isset($_POST['buscaigual']) && $_POST['buscaigual']=="identico")
+		{
+			$where[] = "destinatario = '".$_POST['destinatario']."'";
+		}
+		else
+		{
+			$where[] = "destinatario LIKE '%{$_POST['destinatario']}%'";
+		}
 	}
 	if(isset($_POST['poblacion']) && $_POST['poblacion']!="")
 	{
-		$where[] = "poblacion LIKE '%".$_POST['poblacion']."%'";
+		if(isset($_POST['buscaigual']) && $_POST['buscaigual']=="identico")
+		{
+			$where[] = "poblacion = '".$_POST['poblacion']."'";
+		}
+		else
+		{
+			$where[] = "poblacion LIKE '%".$_POST['poblacion']."%'";
+		}
 	}
 	if(isset($_POST['codigo_postal']) && $_POST['codigo_postal']!="")
 	{
-		$where[] = "codigo_postal LIKE '%".$_POST['codigo_postal']."%'";
+		if(isset($_POST['buscaigual']) && $_POST['buscaigual']=="identico")
+		{
+			$where[] = "codigo_postal = '".$_POST['codigo_postal']."'";
+		}
+		else
+		{
+			$where[] = "codigo_postal LIKE '%".$_POST['codigo_postal']."%'";
+		}
 	}
 	
-	$sql = "SELECT * FROM envios WHERE ".implode(" OR ",$where);
+	$sql = "SELECT * FROM envios WHERE ".implode(" AND ",$where);
 	$bd->Consulta($sql);
 	
 	$envios = array();

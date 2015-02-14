@@ -7,6 +7,7 @@
 <body>
 <div class="container">
 	<h3 style="text-align: center; background-color: #CECECE;">Añadir nuevo envío</h3>
+	<div class="col-sm-offset-4">
 	<form class="form-horizontal" role="form" action="" method="post">
 		<div class="form-group">
 		    <label for="destinatario" class="col-sm-2 control-label">Destinatario</label>
@@ -71,6 +72,7 @@
 		    </div>
 		 </div>
 	</form>
+	</div>
 </div>	
 </body>
 </html>

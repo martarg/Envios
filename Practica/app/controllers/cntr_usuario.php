@@ -1,6 +1,4 @@
 <?php
-require ('config.php');
-
 session_start();
 
 function ValidaUsuario($usuario, $clave)
@@ -15,34 +13,29 @@ function ValidaUsuario($usuario, $clave)
 	}
 }
 
-
-
 if(isset($_SESSION['validado']))
 {
 	if (isset($_GET['action']) && $_GET['action'] == "cerrar") {
 		session_destroy();
-		//echo "Se ha cerrado la sesión";
-		header("location: index.php");
+		echo "Se ha cerrado la sesión";
+		require 'login.php';
 	}
 	else {
-		
-		require (ruta."/views/vista_encabezado.php");
-		require (ruta.'/controllers/cntr_envios.php');
+	require (ruta.'/controllers/cntr_envios.php');
 	}
 }
-else
+else 
 {
 	if($_POST)
 	{
 		if (ValidaUsuario($_POST['usuario'], $_POST['password']))
 		{
 			$_SESSION['validado'] = TRUE;
-			$_SESSION['usuario'] = $_POST['usuario'];
-			header("location: index.php");
+			header("location: ..\index.php");
 		}
-		else
+		else 
 		{
-			echo '<div class="alert alert-danger" role="alert"><strong>Usuario o contraseña incorrectos.</strong> Vuelva a intentarlo.</div>';
+			echo "INCORRECTO";
 			require (ruta.'/views/form_usuario.php');
 		}
 	}

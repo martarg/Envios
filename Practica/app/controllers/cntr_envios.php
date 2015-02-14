@@ -3,7 +3,7 @@
 <?php
 //Llama al modelo
 include (ruta.'/models/modelo.php');
-
+//require (ruta."/views/vista_encabezado.php");
 
 $bd = Bd_conexion::getInstance();
 

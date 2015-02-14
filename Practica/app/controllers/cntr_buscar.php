@@ -30,7 +30,18 @@ if($_POST)
 	
 	$resultado = BuscarEnvio($encontrado);
 	
-	include (ruta."/views/vista_buscar.php");
+	if(!$resultado)
+	{
+		echo '<div class="container"><div class="alert alert-success" role="alert">
+			<strong>No se han encontrado coincicencias.</strong>
+		</div></div>';
+		header ( 'Refresh: 3; URL= ../index.php');
+	}
+	else 
+	{
+		include (ruta."/views/vista_buscar.php");
+	}
+	
 }
 else
 {

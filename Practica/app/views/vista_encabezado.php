@@ -8,25 +8,24 @@
 <body>
 	
 	<div class="container">
-		<div class="page-header">
-		  <h1>KeNoLLega S.L.</h1>
+		<div style="float: right">
+			<?php if (isset($usuario)): ?>
+        		<p>Hola, <?=$usuario ?></p>
+        	<?php endif; ?>
+			
+			<a href="index.php?action=cerrar" >Cerrar sesión</a>
+		</div>
+		<div class="page-header" style="background-color: #D0F5A9">
+		  	<h1 style="padding-top: 20px; margin-left: 30px;">KeNoLLega S.L.</h1>
 		</div>
 		
 		<ul class="nav nav-tabs">
 		  <li role="presentation"><a href="../index.php">Inicio</a></li>
 		  <li role="presentation"><a href="controllers/cntr_insertar.php">Añadir envío</a></li>
 		  <li role="presentation"><a href="controllers/cntr_buscar.php">Buscar</a></li>
+		  <!-- <li role="presentation"><a href="index.php?action=cerrar">Cerrar sesión</a></li> -->
 		</ul>
 		<br>
-		
-		<!-- <form class="form-horizontal" role="form" action="controllers/cntr_buscar.php" method="post">
-			<div class="form-group">
-			    <div class="col-sm-4">
-			      <input type="text" class="form-control" name="busqueda" placeholder="Buscar..."/>
-			    </div>
-			    <button type="submit" class="btn btn-primary">Buscar</button>
-			 </div>
-		 </form> -->
 </div>
 </body>
 </html>

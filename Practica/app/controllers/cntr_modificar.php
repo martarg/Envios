@@ -7,6 +7,8 @@ require (ruta.'\helpers\ValidarCampos.php');
 require (ruta.'\helpers\select_provincias.php');
 require (ruta."/views/vista_encabezado.php");
 
+$provincias=ListaProvincias();
+
 //Si se ha enviado:
 if($_POST)
 {
@@ -63,6 +65,6 @@ else
 		);
 	
 	/*Muestra la lista de los nombres de provincias.*/
-	$provincias=ListaProvincias();
+	//$provincias=ListaProvincias();
 	include (ruta.'/views/vista_modificar.php');
 }

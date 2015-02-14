@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="container">
-	<h3 style="text-align: center; background-color: #CECECE;">Resultados encontrados</h3>
+	<h3 style="text-align: center; background-color: #CECECE;">Resultados de la búsqueda</h3>
 		<table class="table">
 		<tr>
 				<th>#</th>
@@ -40,6 +40,16 @@
 					<td><?php echo $reg['fecha_creacion']?></td>
 					<td><?php echo $reg['fecha_entrega']?></td>
 					<td><?php echo $reg['observaciones']?></td>
+					
+					<td><a class="btn btn-default" href="cntr_modificar.php?id=<?=$reg['id']?>" style="background-color: #8FDCBB">
+						<span class="fa fa-pencil-square-o"></span>
+					</a>
+				<td><a class="btn btn-default" href="cntr_eliminar.php?id=<?=$reg['id']?>" style="background-color: #F79999">
+						<span class="fa fa-trash"></span>
+					</a>
+				<td><a class="btn btn-default" href="cntr_recepcion.php?id=<?=$reg['id']?>" >
+						<span class="fa fa-check"></span>
+					</a>
 				</tr>
 				<?php 
 				}
