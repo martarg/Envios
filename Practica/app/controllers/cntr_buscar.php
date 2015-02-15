@@ -1,50 +1,50 @@
 <?php
+session_start();
 require ('..\config.php');
 require (ruta.'\models\modelo.php');
 require (ruta."/views/vista_encabezado.php");
-
-
-//include (ruta."/views/form_buscar.php");
-
-/*if($_POST)
-{
-	$encontrado = $_POST['busqueda'];
-	
-	$resultado = BuscarEnvio($encontrado);
-	include (ruta."/views/vista_buscar.php");
-}
-else
-{
-	header ("location: ../index.php");
-}*/
+require (ruta.'/helpers/ValidarCampos.php');
 
 if($_POST)
 {
-	//$nom = $_POST['destinatario'];
+	//Filtra los campos. Devuelve true si hay errores.
+	$error = ValidarBusqueda();
 	
-	$encontrado = array (
-		'nombre' => $_POST['destinatario'],
-		'poblacion' => $_POST['poblacion'],
-		'codigo_postal' => $_POST['codigo_postal']
-	);
-	
-	$resultado = BuscarEnvio($encontrado);
-	
-	if(!$resultado)
+	if($error)
 	{
-		echo '<div class="container"><div class="alert alert-success" role="alert">
-			<strong>No se han encontrado coincicencias.</strong>
-		</div></div>';
-		header ( 'Refresh: 3; URL= ../index.php');
+		//Si hay error, muestra el formulario.
+		include (ruta.'/views/form_buscar.php');
 	}
-	else 
+	else
 	{
-		include (ruta."/views/vista_buscar.php");
+		//Guardamos los campos en un array.
+		$encontrado = array (
+			'nombre' => $_POST['destinatario'],
+			'poblacion' => $_POST['poblacion'],
+			'codigo_postal' => $_POST['codigo_postal']
+		);
+		
+		//Guardamos el resultado de la búsqueda.
+		$resultado = BuscarEnvio($encontrado);
+		
+		//Si no encuentra resultado, muestra mensaje y carga el index.
+		if(!$resultado)
+		{
+			echo '<div class="container"><div class="alert alert-success" role="alert">
+				<strong>No se han encontrado coincicencias.</strong>
+			</div></div>';
+			header ( 'Refresh: 3; URL= ../index.php');
+		}
+		else 
+		{
+			//Muestra resultados de la búsqueda.
+			include (ruta."/views/vista_buscar.php");
+		}
 	}
 	
 }
 else
 {
-	//header ("location: ../index.php");
+	//Incluye el formulario.
 	include (ruta."/views/form_buscar.php");
 }

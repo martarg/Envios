@@ -135,8 +135,6 @@ function BuscarEnvio($busqueda)
 {
 	$bd = Bd_conexion::getInstance();
 	
-	//$sql = "SELECT * FROM envios WHERE destinatario LIKE '%$busqueda%' OR telefono LIKE '%$busqueda%' OR poblacion LIKE '%$busqueda%'";
-	
 	if(isset($_POST['destinatario']) && $_POST['destinatario']!="")
 	{
 		if(isset($_POST['buscaigual']) && $_POST['buscaigual']=="identico")

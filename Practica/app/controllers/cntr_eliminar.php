@@ -1,6 +1,7 @@
 <!-- Controla la opción de eliminar un envío -->
 
 <?php
+session_start();
 require '../config.php';
 require (ruta.'/models/modelo.php');
 require (ruta."/views/vista_encabezado.php");

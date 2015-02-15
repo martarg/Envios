@@ -1,19 +1,21 @@
 <?php
-
+/**
+ * Filtra los campos de los formularios
+ * @return boolean
+ */
 function FiltrarCampos()
 {
-	//$errores = false;
-
 	if ($_POST['destinatario']=='' || $_POST['telefono']=='' || $_POST['direccion']=='' ||
 			$_POST['poblacion']=='' || $_POST['provincia']=='' || $_POST['email']=='')
 	{
-		echo '<div class="container"><div class="alert alert-danger"><strong>Atención </strong>debes rellenar todos los campos</div></div>';
+		echo '<div class="container"><div class="alert alert-danger"><strong>Atención </strong>los campos con (*) son obligatorios.</div></div>';
 		return true;
 	}
 
 	//Comprueba si el correo electrónico es válido.
 	else if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL))
 	{
+		echo '<div class="container"><div class="alert alert-danger"><strong>Email </strong>no válido.</div></div>';
 		return true;
 	}
 
@@ -24,6 +26,7 @@ function FiltrarCampos()
 	**Que tenga 8 dígitos(+ el primero)*/
 	else if (!preg_match('/^[9|6|7][0-9]{8}$/', $_POST['telefono']))
 	{
+		echo '<div class="container"><div class="alert alert-danger"><strong>Teléfono </strong>no válido.</div></div>';
 		return true;
 	}
 
@@ -31,6 +34,7 @@ function FiltrarCampos()
 	 **Que sean números entre 0-9 y tamaño máximo 5.*/
 	if (!preg_match('/^[0-9]{5}$/', $_POST['codigo_postal']))
 	{
+		echo '<div class="container"><div class="alert alert-danger">El <strong>código postal </strong>debe tener 5 cifras.</div></div>';
 		return true;
 	}
 
@@ -39,4 +43,21 @@ function FiltrarCampos()
 	{
 		return false;
 	}
+}
+
+/**
+ * Valida los campos del formulario de búsqueda
+ * Comprueba que haya al menos algún campo escrito.
+ * 
+ * @return boolean
+ */
+function ValidarBusqueda()
+{
+	if($_POST['destinatario'] == "" && $_POST['poblacion'] == "" && $_POST['codigo_postal'] == "")
+	{
+		echo '<div class="container"><div class="alert alert-danger">No ha seleccionado ninguna búsqueda.</div></div>';
+		return true;
+	}
+	else 
+		return false;
 }

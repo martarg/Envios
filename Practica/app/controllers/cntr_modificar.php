@@ -1,6 +1,7 @@
 <!-- Controla opción de modificar un envío -->
 
 <?php
+session_start();
 require ('..\config.php');
 require (ruta.'\models\modelo.php');
 require (ruta.'\helpers\ValidarCampos.php');
@@ -19,7 +20,6 @@ if($_POST)
 	if($errores)
 	{
 		include (ruta.'/views/vista_modificar.php');
-		echo "Campos no válidos";
 	}
 	/*Sino, insertamos los datos en un array*/
 	else

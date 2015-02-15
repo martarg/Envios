@@ -8,22 +8,18 @@
 <body>
 	
 	<div class="container">
-		<div style="float: right">
-			<?php if (isset($usuario)): ?>
-        		<p>Hola, <?=$usuario ?></p>
-        	<?php endif; ?>
-			
-			<a href="index.php?action=cerrar" >Cerrar sesión</a>
+		<div style="margin-top: 7%; float: right; text-align: right;">
+        	Iniciado a las <?php echo $_SESSION['tiempo'];?>
+			<br><a href="<?php echo webroot;?>index.php?action=cerrar" >Cerrar sesión</a>
 		</div>
 		<div class="page-header" style="background-color: #D0F5A9">
 		  	<h1 style="padding-top: 20px; margin-left: 30px;">KeNoLLega S.L.</h1>
 		</div>
 		
 		<ul class="nav nav-tabs">
-		  <li role="presentation"><a href="../index.php">Inicio</a></li>
-		  <li role="presentation"><a href="controllers/cntr_insertar.php">Añadir envío</a></li>
-		  <li role="presentation"><a href="controllers/cntr_buscar.php">Buscar</a></li>
-		  <!-- <li role="presentation"><a href="index.php?action=cerrar">Cerrar sesión</a></li> -->
+		  <li role="presentation"><a href="<?php echo webroot;?>">Inicio</a></li>
+		  <li role="presentation"><a href="<?php echo webroot;?>controllers/cntr_insertar.php">Añadir envío</a></li>
+		  <li role="presentation"><a href="<?php echo webroot;?>controllers/cntr_buscar.php">Buscar</a></li>
 		</ul>
 		<br>
 </div>

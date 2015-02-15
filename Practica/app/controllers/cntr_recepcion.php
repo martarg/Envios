@@ -1,6 +1,7 @@
 <!-- Controla la opción de anotar la recepción de un envío -->
 
 <?php
+session_start();
 require ('../config.php');
 include (ruta.'/models/modelo.php');
 require (ruta."/views/vista_encabezado.php");

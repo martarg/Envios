@@ -1,6 +1,7 @@
 <!-- Controla opción de insertar un envío -->
 
 <?php
+session_start();
 require ('../config.php');
 require (ruta.'/models/modelo.php');
 require (ruta.'\helpers\select_provincias.php');
@@ -8,7 +9,7 @@ require (ruta.'\helpers\select_provincias.php');
 //Muestra las provincias devueltas por la función
 $provincias = ListaProvincias();
 
-require ruta.'/helpers/ValidarCampos.php';
+require (ruta.'/helpers/ValidarCampos.php');
 require (ruta."/views/vista_encabezado.php");
 
 

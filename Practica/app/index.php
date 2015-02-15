@@ -1,7 +1,7 @@
 <?php
 require ('config.php');
 
-session_start();
+if (!session_id()) session_start();
 
 function ValidaUsuario($usuario, $clave)
 {
@@ -25,7 +25,6 @@ if(isset($_SESSION['validado']))
 		header("location: index.php");
 	}
 	else {
-		
 		require (ruta."/views/vista_encabezado.php");
 		require (ruta.'/controllers/cntr_envios.php');
 	}
@@ -36,8 +35,10 @@ else
 	{
 		if (ValidaUsuario($_POST['usuario'], $_POST['password']))
 		{
+			//header("location: index.php");
 			$_SESSION['validado'] = TRUE;
 			$_SESSION['usuario'] = $_POST['usuario'];
+			$_SESSION['tiempo'] = date("H:i:s");
 			header("location: index.php");
 		}
 		else
