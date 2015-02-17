@@ -3,7 +3,6 @@
 <?php
 //Llama al modelo
 include (ruta.'/models/modelo.php');
-//require (ruta."/views/vista_encabezado.php");
 
 $bd = Bd_conexion::getInstance();
 
@@ -16,8 +15,7 @@ $fila=$bd->LeeRegistro();
 $articulosTotales = $fila['total'];
 
 //Busca cuántas páginas hay en total
-//$articulosPorPagina = 10;
-$articulosPorPagina = 3;
+$articulosPorPagina = 10;
 $paginasTotales = ceil($articulosTotales / $articulosPorPagina);
 
 
@@ -49,7 +47,6 @@ $envios = getEnvios($articuloInicial, $articulosPorPagina);
 //Creamos variables que contengan la pagina siguiente, anterior, última y primera.
 $PagSiguiente = $paginaActual+1;
 $PagAnterior = $paginaActual-1;
-
 $PagPrimera = 1;
 $PagUltima = $paginasTotales;
 

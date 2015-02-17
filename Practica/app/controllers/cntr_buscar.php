@@ -1,3 +1,5 @@
+<!-- Controla la opción de buscar -->
+
 <?php
 session_start();
 require ('..\config.php');

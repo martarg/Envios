@@ -8,9 +8,9 @@ require (ruta.'\helpers\ValidarCampos.php');
 require (ruta.'\helpers\select_provincias.php');
 require (ruta."/views/vista_encabezado.php");
 
+//Guardamos el array de provincias
 $provincias=ListaProvincias();
 
-//Si se ha enviado:
 if($_POST)
 {
 	//Comprueba si hay errores.
@@ -65,6 +65,5 @@ else
 		);
 	
 	/*Muestra la lista de los nombres de provincias.*/
-	//$provincias=ListaProvincias();
 	include (ruta.'/views/vista_modificar.php');
 }

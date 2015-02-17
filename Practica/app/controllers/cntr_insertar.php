@@ -23,8 +23,6 @@ if($_POST)
 	if($errores)
 	{
 		include (ruta.'/views/vista_insertar.php');
-		echo "Campos no válidos";
-		
 	}
 	/*Sino, los datos los insertamos en un array*/
 	else

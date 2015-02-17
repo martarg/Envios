@@ -24,11 +24,11 @@ Class Bd_conexion
 	
 	/*Patr�n singleton. Evita clonar el objeto.*/
 	private function __clone(){ }
-	
-	/*
-	 * Funci�n que crea el objeto.
+
+	/**
+	 * Función que crea el objeto.
 	 * 
-	 * @return
+	 * @return Bd_conexion
 	 */
 	public static function getInstance()
 	{
@@ -40,7 +40,11 @@ Class Bd_conexion
 	}
 	
 	
-	/*Hace la conexi�n con la base de datos.*/
+	/**
+	 * Hace la conexión con la base de datos.
+	 * 
+	 * @param unknown $bd_conf
+	 */
 	private function Conectar($bd_conf)
 	{
 		if(! is_array($bd_conf))
@@ -98,7 +102,7 @@ Class Bd_conexion
 	}
 	
 	/**
-	 * Devuelve el �ltimo registro leido
+	 * Devuelve el último registro leido
 	 */
 	public function RegistroActual()
 	{
